@@ -1,0 +1,41 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+int c=0;
+char s[256], mat[256][256];
+char *p;
+
+int main() {
+    scanf("%[^\n]", s);
+    p = strtok(s, " ");
+    
+    while(p != NULL) {
+        strcpy(mat[c], p);
+        c++;
+        p = strtok(NULL, " ");
+    }
+    for(int i = 0; i < c-1; i++) {
+        for(int j = i+1; j < c; j++) {
+            if(strlen(mat[i]) < strlen(mat[j]))
+                swap(mat[i], mat[j]);
+                
+            if(strlen(mat[i]) == strlen(mat[j])) {
+                int k = 0;
+                while (mat[i][k] != '\0') {
+                    if(tolower(mat[i][k]) > tolower(mat[j][k])) {
+                        swap(mat[i], mat[j]);
+                        break;
+                    }
+                    else if(tolower(mat[i][k]) < tolower(mat[j][k])) 
+                        break;
+                    k++;
+                }
+            }
+        }
+    }
+    for(int i = 0; i < c; i++) {
+        printf("%s \n", mat[i]);
+    }
+    return 0;
+}
