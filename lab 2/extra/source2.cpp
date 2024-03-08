@@ -16,9 +16,9 @@ void MovieSeries::Sort() {
 	for (int i = 0; i < count - 1; i++)
 		for (int j = i + 1; j < count; j++)
 			if (vector[i]->passed_years() > vector[j]->passed_years()){
-				int aux = vector[i]->passed_years();
-				vector[i]->passed_years() = vector[j]->passed_years();
-				vector[j]->passed_years() = aux;
+				Movie* aux = vector[i];
+				vector[i] = vector[j];
+				vector[j] = aux;
 			}
 }
 void MovieSeries::Print() {
