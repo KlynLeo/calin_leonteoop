@@ -1,1 +1,1 @@
-Laboratories from the OOP course (year 1, 2nd semester)
+Laboratories from the OOP course (first year, 2nd semester)
